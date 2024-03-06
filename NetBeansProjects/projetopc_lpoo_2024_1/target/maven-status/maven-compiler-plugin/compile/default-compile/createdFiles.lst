@@ -1,0 +1,12 @@
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\Funcionario.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\Cliente.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\Pessoa.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\Situacao.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\dao\PersistenciaJDBC.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\Venda.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\Bovino.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\dao\PersistenciaJPA.class
+br\edu\ifsul\cc\lpoo\pecuaria\ProjetoPC_LPOO_2024_1.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\dao\InterfacePersistencia.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\Raca.class
+br\edu\ifsul\cc\lpoo\pecuaria\modelo\Pesagem.class
