@@ -1,11 +1,18 @@
 package br.edu.ifsul.cc.lpoo.pecuaria.modelo;
 
 import java.util.Calendar;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author telmo
  */
+
+@Entity
+@Table(name = "tb_funcionario")
+@DiscriminatorValue("C")
 public class Cliente extends Pessoa{
     
     private String cnpj;

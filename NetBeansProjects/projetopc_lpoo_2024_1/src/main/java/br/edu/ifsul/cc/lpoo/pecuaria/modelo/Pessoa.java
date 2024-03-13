@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -22,20 +24,46 @@ import javax.persistence.Table;
 @DiscriminatorColumn(name = "tipo")
 public abstract class Pessoa implements Serializable {
     @Id
+     @Column(length = 50)
     private String cpf;
     
     @Column(nullable = false, length = 50)
     private String rg;
     
+    @Column(nullable = false, length = 200)
+    private String nome;
+    
+    @Column(nullable = false, length = 6)
     private String senha;
+    
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
     private Calendar data_nascimento;
+    
+    @Column(nullable = true, length = 8)
     private String cep;
+    
+    @Column(nullable = false, length = 50)
     private String numero;
+    
+    @Column(nullable = true, length = 200)
     private String complemento;
+    
+    @Column(nullable = false)
     private Boolean status;
 
     public Pessoa() {
     }
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    
 
     public String getCpf() {
         return cpf;

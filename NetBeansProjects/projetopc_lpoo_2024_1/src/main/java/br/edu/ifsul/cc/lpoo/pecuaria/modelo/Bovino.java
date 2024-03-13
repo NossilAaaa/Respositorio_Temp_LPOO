@@ -1,28 +1,42 @@
 
 package br.edu.ifsul.cc.lpoo.pecuaria.modelo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Collection;
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author telmo
  */
-public class Bovino {
+public class Bovino implements Serializable {
     
     private Integer id;
     private Calendar data_inicio;
     private Calendar data_fim;
-    private Float peso_chegada;
-    private Float peso_atual;
-    private Float valor_kg_compra;
-    private Float valor_kg_venda;
-    private Float custo_diario;
-    private Float valor_liquido;
-    private Situacao situacao;
+    private Float peso_chegada;//obrig
+    private Float peso_atual;//N obrig
+    private Float valor_kg_compra;// obrig
+    private Float valor_kg_venda;// n obrig
+    private Float custo_diario;// obrig
+    private Float valor_liquido;// opcional
     
-    private Raca raca;
-    private Collection<Pesagem> pesagens;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Situacao situacao;//associação
+    
+    @ManyToOne
+    @JoinColumn(name = "raca_id", nullable = false)
+    private Raca raca;//associação
+    
+     @OneToMany(mappedBy = "bovino")//mappedBy deve apontar para a referencia de bovino dentro de Pesagem.
+    private Collection<Pesagem> pesagens;//agregação por composição
 
     public Bovino() {
     }
