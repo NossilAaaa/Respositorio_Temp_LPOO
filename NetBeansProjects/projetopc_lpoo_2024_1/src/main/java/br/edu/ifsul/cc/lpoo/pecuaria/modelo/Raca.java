@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -18,11 +20,15 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_raca")
+
+@NamedQueries({@NamedQuery(name="Raca.orderbyid", query="select f from Raca f order by f.id asc")})
 public class Raca implements Serializable {
     
     @Id
     @SequenceGenerator(name = "seq_raca", sequenceName = "seq_raca_id", allocationSize = 1)
-    @GeneratedValue(generator = "seq_raca", strategy = GenerationType.SEQUENCE)   
+    @GeneratedValue(generator = "seq_raca", strategy = GenerationType.SEQUENCE)
+    //@NamedQueries({@NamedQuery(name="Raca.orderbyid", query="select f from Raca f order by f.id asc")})
+    
     private Integer id;
     
     @Column(nullable = false, length = 200)

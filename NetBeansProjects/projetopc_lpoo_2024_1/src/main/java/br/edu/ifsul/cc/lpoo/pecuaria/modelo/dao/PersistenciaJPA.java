@@ -4,6 +4,8 @@
  */
 package br.edu.ifsul.cc.lpoo.pecuaria.modelo.dao;
 
+import br.edu.ifsul.cc.lpoo.pecuaria.modelo.Raca;
+import java.util.Collection;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -55,6 +57,10 @@ public class PersistenciaJPA implements InterfacePersistencia {
         entity.getTransaction().commit(); //comita a transacao (comando sql) 
     }
     
-    
+    @Override
+    public Collection<Raca> listRacas() throws Exception{
+        
+        return entity.createNamedQuery("Raca.orderbyid").getResultList();
+    }
     
 }

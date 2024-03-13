@@ -1,16 +1,32 @@
 
 package br.edu.ifsul.cc.lpoo.pecuaria.modelo;
 
+import java.io.Serializable;
 import java.util.Calendar;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 /**
  *
  * @author telmo
  */
-public abstract class Pessoa {
-    
+
+@Entity
+@Table(name = "tb_pessoa")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tipo")
+public abstract class Pessoa implements Serializable {
+    @Id
     private String cpf;
+    
+    @Column(nullable = false, length = 50)
     private String rg;
+    
     private String senha;
     private Calendar data_nascimento;
     private String cep;
